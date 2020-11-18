@@ -82,20 +82,18 @@ numberedList()
 
 
 const remove = function(num) {
-    if (cmd === '1') {
-        interface.question('\nList your tasks', add)
-    } else if (cmd === '2') {
-        displayToDos(todos);
-        interface.question('\nRemove a task', remove)
-    } else if (cmd === '3') {
-        displaysToDos(todos);
-        interface.question('\nMark complete', complete)
-    } 
-}
-console.clear()
-
-const displayMenu = function() {
-numberedList()
+  todos.splice(num - 1, 1)
+  numberedList()
+  add()
+    // if (cmd === '1') {
+    //     interface.question('\nList your tasks', add)
+    // } else if (cmd === '2') {
+    //     displayToDos(todos);
+    //     interface.question('\nRemove a task', remove)
+    // } else if (cmd === '3') {
+    //     displaysToDos(todos);
+    //     interface.question('\nMark complete', complete)
+    // } 
 }
 
 
@@ -104,6 +102,5 @@ interface.question(menu, handleMenu)
 
 // * Now all we have to do is `splice` the item at that location in the array. What you want to research for this one is how to use `splice` to remove one item only at a certain index. And remember! They're not actually passing you an index... they're passing you a _number_, which means your 0-based counting will be off by 1.
 // * Then, of course, we'll need to show the user their new todo list, with the todo they picked `splice`d right out. And display the menu again, looping them back to your menu-handling function.
-
 
 
